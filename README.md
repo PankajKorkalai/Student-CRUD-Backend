@@ -53,22 +53,6 @@ The server will be running on http://localhost:5000.
 - **PUT** `/api/students/:id` - Update student information
 - **DELETE** `/api/students/:id` - Delete a student
 
-## 📝 Sample Data
-
-```json
-{
-  "name": "John Doe",
-  "rollNo": "12345",
-  "branch": "Computer Science",
-  "degree": "B.Tech",
-  "DOB": "1999-05-15",
-  "gender": "Male",
-  "currentYear": 4,
-  "CGPA": 8.5,
-  "SGPA": 9.0,
-  "passoutYear": 2024,
-  "contactNumber": "9876543210"
-}
 
 ## 🧑‍💻 Technologies Used
 
@@ -100,8 +84,3 @@ The server will be running on http://localhost:5000.
 - **Asynchronous error handling:**  
   Wrap all async routes using the `catchAsyncErrors` function, ensuring proper error catching.
 
-### Example of error handling middleware:
-
-```javascript
-const catchAsyncErrors = (fn) => (req, res, next) =>
-  Promise.resolve(fn(req, res, next)).catch(next);
