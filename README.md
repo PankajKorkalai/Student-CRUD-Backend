@@ -74,22 +74,19 @@ The server will be running on http://localhost:5000.
 
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB, Mongoose
-- **Tools:** 
-  - Postman for API testing
-  - Render for cloud deployment
-  - Nodemon for development server
+- **Tools:** Postman for API testing, Render for deployment, Nodemon for development server
 
 ## 📦 Deployment on Render
 
 1. **Create a new service:**
-   - Visit [Render](https://render.com) and create an account (if you don’t have one).
+   - Visit [Render](https://render.com) and create an account.
    - Create a new web service and connect your GitHub repository.
-  
+
 2. **Environment variables:**
    - In the Render dashboard, go to your web service's settings.
    - Add the following environment variables:
      - `MONGO_URI`: Your MongoDB connection string
-     - `PORT`: The port your server will listen on (usually 5000 or specified in your code)
+     - `PORT`: The port your server will listen on (usually 5000)
 
 3. **Deploy the service:**
    - Render will automatically build and deploy your web service.
@@ -98,12 +95,13 @@ The server will be running on http://localhost:5000.
 ## 🐛 Error Handling
 
 - **Custom error handling middleware:**  
-  A middleware catches errors and sends a structured response without crashing the application.
+  Middleware catches errors and sends a structured response without crashing the app.
 
 - **Asynchronous error handling:**  
-  All async routes are wrapped using the `catchAsyncErrors` function, ensuring errors are caught and passed to the error handler, maintaining smooth execution.
+  Wrap all async routes using the `catchAsyncErrors` function, ensuring proper error catching.
 
 ### Example of error handling middleware:
+
 ```javascript
 const catchAsyncErrors = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
